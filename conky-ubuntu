@@ -1,0 +1,38 @@
+conky.config = {
+  double_buffer    = true,
+  no_buffers       = true,
+  text_buffer_size = 2048,
+
+  own_window       = true,
+  own_window_type  = 'normal',
+  own_window_class = 'conky',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  own_window_argb_visual = true,
+  own_window_transparent = true,
+
+  draw_shades  = false,
+  draw_outline = false,
+  draw_borders = false,
+  border_width = 0,
+
+  alignment     = 'top_left',
+  minimum_width = 1600,
+  maximum_width = 1600,
+  gap_x         = 150,
+  gap_y         = 375,
+
+  use_xft    = true,
+  xftalpha   = 0.1,
+  uppercase  = false,
+  use_spacer = 'none',
+  override_utf8_locale = true,
+
+  color1 = 'ff3370',
+
+  background      = true,
+  update_interval = 10
+}
+
+conky.text = [[
+${color1} ${font FairydustB:size=46} ${execi 65536 cat /etc/lsb-release|grep ID|cut -d= -f2} ${execi 65536 cat /etc/lsb-release|grep REL|cut -d= -f2} "${execi 65536 cat /etc/lsb-release|grep NAME|cut -d= -f2}"${font}
+]]
