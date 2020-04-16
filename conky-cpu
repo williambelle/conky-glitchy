@@ -1,0 +1,51 @@
+conky.config = {
+  double_buffer    = true,
+  no_buffers       = true,
+  text_buffer_size = 2048,
+
+  own_window       = true,
+  own_window_type  = 'normal',
+  own_window_class = 'conky',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  own_window_argb_visual = true,
+  own_window_transparent = true,
+
+  draw_shades  = false,
+  draw_outline = false,
+  draw_borders = false,
+  border_width = 0,
+
+  alignment     = 'top_left',
+  minimum_width = 320,
+  maximum_width = 320,
+  gap_x         = 1310,
+  gap_y         = 50,
+
+  use_xft    = true,
+  xftalpha   = 0.1,
+  uppercase  = false,
+  use_spacer = 'none',
+  override_utf8_locale = true,
+  font = 'saxMono:size=10',
+
+  color1 = '848484',
+  color2 = 'ff3370',
+  color3 = '51e4ca',
+
+  background      = true,
+  update_interval = 2,
+  cpu_avg_samples = 4
+}
+
+conky.text = [[
+${offset 80}${color1}Intel Core i7 4800MQ ${color2}${cpu cpu}%
+
+${color1}Core 1: ${color3}${exec sensors|grep 'Core 0'|awk '{print $3}'}${goto 170}${color2}${cpu cpu1}%${color1}${alignr}${color3}${freq_g 1} GHz
+${color1}${cpugraph cpu1 20,0 ff592d ff11aa}
+${color1}Core 2: ${color3}${exec sensors|grep 'Core 1'|awk '{print $3}'}${goto 170}${color2}${cpu cpu2}%${color1}${alignr}${color3}${freq_g 2} GHz
+${color1}${cpugraph cpu2 20,0 ff592d ff11aa}
+${color1}Core 3: ${color3}${exec sensors|grep 'Core 2'|awk '{print $3}'}${goto 170}${color2}${cpu cpu3}%${color1}${alignr}${color3}${freq_g 3} GHz
+${color1}${cpugraph cpu3 20,0 ff592d ff11aa}
+${color1}Core 4: ${color3}${exec sensors|grep 'Core 3'|awk '{print $3}'}${goto 170}${color2}${cpu cpu4}%${color1}${alignr}${color3}${freq_g 4} GHz
+${color1}${cpugraph cpu4 20,0 ff592d ff11aa}
+]]
