@@ -1,0 +1,50 @@
+conky.config = {
+  double_buffer    = true,
+  no_buffers       = true,
+  text_buffer_size = 2048,
+
+  own_window       = true,
+  own_window_type  = 'normal',
+  own_window_class = 'conky',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  own_window_argb_visual = true,
+  own_window_transparent = true,
+
+  draw_shades  = false,
+  draw_outline = false,
+  draw_borders = false,
+  border_width = 0,
+
+  alignment     = 'top_left',
+  minimum_width = 310,
+  maximum_width = 310,
+  gap_x         = 215,
+  gap_y         = 750,
+
+  use_xft    = true,
+  xftalpha   = 0.1,
+  uppercase  = false,
+  use_spacer = 'none',
+  override_utf8_locale = true,
+  font = 'saxMono:size=10',
+
+  color1 = '848484',
+  color2 = 'ff3370',
+  color3 = '51e4ca',
+
+  background      = true,
+  update_interval = 2,
+}
+
+conky.text = [[
+${color1}IP : ${color3}${if_up enp0s25}${addr enp0s25}${else}Disconnected${endif}
+
+${color1}Ports Open     : ${color3}${tcp_portmon 1 65535 count}
+${color1}Ports Inbound  : ${color3}${tcp_portmon 1 32767 count}
+${color1}Ports Outbound : ${color3}${tcp_portmon 32768 61000 count}
+
+${color1}Up   : ${color3}${upspeed enp0s25}${alignr}${color1}Total : ${color2}${totalup enp0s25}
+${color1}${upspeedgraph enp0s25 20,0 ff592d ff11aa 1700KiB}
+${color1}Down : ${color3}${downspeed enp0s25}${alignr}${color1}Total : ${color2}${totaldown enp0s25}
+${color1}${downspeedgraph enp0s25 20,0 ff592d ff11aa 1700KiB}
+]]
