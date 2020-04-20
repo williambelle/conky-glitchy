@@ -1,0 +1,45 @@
+conky.config = {
+  double_buffer    = true,
+  no_buffers       = true,
+  text_buffer_size = 2048,
+
+  own_window       = true,
+  own_window_type  = 'normal',
+  own_window_class = 'conky',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  own_window_argb_visual = true,
+  own_window_transparent = true,
+
+  draw_shades  = false,
+  draw_outline = false,
+  draw_borders = false,
+  border_width = 0,
+
+  alignment     = 'top_left',
+  minimum_width = 295,
+  maximum_width = 295,
+  gap_x         = 1048,
+  gap_y         = 750,
+
+  use_xft    = true,
+  xftalpha   = 0.1,
+  uppercase  = false,
+  use_spacer = 'none',
+  override_utf8_locale = true,
+  font = 'saxMono:size=10',
+
+  color1 = '848484',
+  color3 = '51e4ca',
+
+  background      = true,
+  update_interval = 5,
+}
+
+conky.text = [[
+${color1}Nvidia ${execi 300 nvidia-settings -q gpus | grep '0] (' | cut -d '(' -f 2,2 | sed -e 's/.\{1\}$//'}
+
+${color1}Driver       : ${execi 300 nvidia-settings -q NvidiaDriverVersion | grep -m 1 Attribute | awk '{print $4}'}
+${color1}Temperature  : ${color3}${execi 2 nvidia-settings -q gpucoretemp | grep -m 1 Attribute | awk '{print $4}' | sed -e 's/\.//'}°C
+${color1}GPU Clock    : ${execi 2 nvidia-settings -q GPUCurrentClockFreqs | grep -m 1 Attribute | awk '{print $4}' | sed -e 's/\.//' | cut -d, -f1} MHz
+${color1}Memory Clock : ${execi 2 nvidia-settings -q GPUCurrentClockFreqs | grep -m 1 Attribute | awk '{print $4}' | sed -e 's/\.//' | cut -d, -f2} MHz
+]]
