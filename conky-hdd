@@ -1,0 +1,47 @@
+conky.config = {
+  double_buffer    = true,
+  no_buffers       = true,
+  text_buffer_size = 2048,
+
+  own_window       = true,
+  own_window_type  = 'normal',
+  own_window_class = 'conky',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  own_window_argb_visual = true,
+  own_window_transparent = true,
+
+  draw_shades  = false,
+  draw_outline = false,
+  draw_borders = false,
+  border_width = 0,
+
+  alignment     = 'top_left',
+  minimum_width = 295,
+  maximum_width = 295,
+  gap_x         = 1380,
+  gap_y         = 905,
+
+  use_xft    = true,
+  xftalpha   = 0.1,
+  uppercase  = false,
+  use_spacer = 'none',
+  override_utf8_locale = true,
+  font = 'saxMono:size=10',
+
+  color1 = '848484',
+  color2 = 'ff3370',
+  color3 = '51e4ca',
+
+  background      = true,
+  update_interval = 5,
+}
+
+conky.text = [[
+${color1}Intel SSD 240GB
+
+${color1}root${goto 130}Used ${color3}${fs_used_perc /}%${alignr}${color1}Free ${color2}${fs_free /}
+${color1}${fs_bar 9 /}
+
+${color1}home${goto 130}Used ${color3}${fs_used_perc /home}%${alignr}${color1}Free ${color2}${fs_free /home}
+${color1}${fs_bar 9 /home}
+]]
