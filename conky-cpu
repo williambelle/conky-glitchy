@@ -38,7 +38,7 @@ conky.config = {
 }
 
 conky.text = [[
-${offset 80}${color1}Intel Core i7 4800MQ ${color2}${cpu cpu}%
+${offset 34}${color1}Intel Core i7 4800MQ ${color2}${cpu cpu}% ${color1}/ ${color3}${exec sensors|grep 'fan1'|awk '{print $2}'} RPM
 
 ${color1}Core 1: ${color3}${exec sensors|grep 'Core 0'|awk '{print $3}'}${goto 170}${color2}${cpu cpu1}%${color1}${alignr}${color3}${freq_g 1} GHz
 ${color1}${cpugraph cpu1 20,0 ff592d ff11aa}
