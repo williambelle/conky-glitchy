@@ -37,14 +37,14 @@ conky.config = {
 }
 
 conky.text = [[
-${color1}IP : ${color3}${if_up enp0s25}${addr enp0s25}${else}Disconnected${endif}
+${color1}IP : ${color3}${if_up wlp3s0}${addr wlp3s0}${else}Disconnected${endif}
 
 ${color1}Ports Open     : ${color3}${tcp_portmon 1 65535 count}
 ${color1}Ports Inbound  : ${color3}${tcp_portmon 1 32767 count}
 ${color1}Ports Outbound : ${color3}${tcp_portmon 32768 61000 count}
 
-${color1}Up   : ${color3}${upspeed enp0s25}${alignr}${color1}Total : ${color2}${totalup enp0s25}
-${color1}${upspeedgraph enp0s25 20,0 ff592d ff11aa 1700KiB}
-${color1}Down : ${color3}${downspeed enp0s25}${alignr}${color1}Total : ${color2}${totaldown enp0s25}
-${color1}${downspeedgraph enp0s25 20,0 ff592d ff11aa 1700KiB}
+${color1}Up   : ${color3}${upspeed wlp3s0}${alignr}${color1}Total : ${color2}${totalup wlp3s0}
+${color1}${upspeedgraph wlp3s0 20,0 ff592d ff11aa 1700KiB}
+${color1}Down : ${color3}${downspeed wlp3s0}${alignr}${color1}Total : ${color2}${totaldown wlp3s0}
+${color1}${downspeedgraph wlp3s0 20,0 ff592d ff11aa 1700KiB}
 ]]
