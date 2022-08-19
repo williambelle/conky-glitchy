@@ -12,7 +12,7 @@ Installation
 Usage
 -----
 
-```
+```bash
 cd /path/to/conky-glitchy/
 ./launch.sh
 ```
